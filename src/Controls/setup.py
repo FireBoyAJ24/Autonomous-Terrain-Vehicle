@@ -1,6 +1,6 @@
 from setuptools import find_packages, setup
 
-package_name = 'Controls'
+package_name = 'controls'
 
 setup(
     name=package_name,

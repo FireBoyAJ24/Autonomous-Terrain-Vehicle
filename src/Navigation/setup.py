@@ -1,6 +1,6 @@
 from setuptools import find_packages, setup
 
-package_name = 'Navigation'
+package_name = 'navigation'
 
 setup(
     name=package_name,
