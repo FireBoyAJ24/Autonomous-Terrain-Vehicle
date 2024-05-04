@@ -1,0 +1,1 @@
+float32 steering # steering angle in degrees

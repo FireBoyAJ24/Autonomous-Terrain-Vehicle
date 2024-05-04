@@ -1,0 +1,1 @@
+float32 current_heading # current heading of the robot in degrees
