@@ -16,6 +16,18 @@
             "problemMatcher": "$gcc"
         },
         {
+            "label": "Build Package",
+            "detail": "Build a specific package in the workspace",
+            "type": "shell",
+            "command": "./build.sh -p ${input:package}",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": "$gcc"
+        }, 
+        // Debug
+        {
             "label": "debug",
             "detail": "Build workspace (debug)",
             "type": "shell",

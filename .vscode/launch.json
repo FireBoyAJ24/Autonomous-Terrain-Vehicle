@@ -67,6 +67,114 @@
       "target": "${workspaceFolder}/install/${input:package}/share/${input:package}/launch/${input:ros_launch}",
     },
   ],
+  "settings": {
+    "todo-tree.highlights.useColourScheme": true,
+        "workbench.colorCustomizations": {
+            "activityBar.activeBackground": "#19488d",
+            "activityBar.activeBorder": "#dd4181",
+            "activityBar.background": "#19488d",
+            "activityBar.foreground": "#e7e7e7",
+            "activityBar.inactiveForeground": "#e7e7e799",
+            "activityBarBadge.background": "#dd4181",
+            "activityBarBadge.foreground": "#e7e7e7",
+            "sash.hoverBorder": "#19488d",
+            "statusBar.background": "#113262",
+            "statusBar.foreground": "#e7e7e7",
+            "statusBarItem.hoverBackground": "#19488d",
+            "statusBarItem.remoteBackground": "#113262",
+            "statusBarItem.remoteForeground": "#e7e7e7",
+            "titleBar.activeBackground": "#113262",
+            "titleBar.activeForeground": "#e7e7e7",
+            "titleBar.inactiveBackground": "#11326299",
+            "titleBar.inactiveForeground": "#e7e7e799",
+            "commandCenter.border": "#e7e7e799"
+        },
+
+        // python
+        "[python]": {
+            "editor.codeActionsOnSave": {
+                "source.organizeImports": "explicit"
+            },
+            "editor.defaultFormatter": "ms-python.black-formatter",
+            "editor.formatOnSave": true,
+            "editor.rulers": [99],
+        },
+        "notebook.formatOnCellExecution": true,
+        "notebook.formatOnSave.enabled": true,
+        "python.analysis.diagnosticMode": "workspace",
+        "python.analysis.extraPaths": [
+            "/workspaces/sailbot_workspace/install/lib/python3.10/site-packages",
+            "/opt/ros/humble/lib/python3.10/site-packages"
+        ],
+        "python.analysis.include": ["${workspaceFolder:sailbot_workspace}/src"],
+        "python.analysis.exclude": ["${workspaceFolder:sailbot_workspace}/src/virtual_iridium"],
+        // Autocomplete from ros python packages
+        "python.autoComplete.extraPaths": [
+            "/workspaces/sailbot_workspace/install/lib/python3.10/site-packages",
+            "/opt/ros/humble/lib/python3.10/site-packages"
+        ],
+        "python.defaultInterpreterPath": "/usr/bin/python3",
+        // Environment file lets vscode find python files within workspace
+        "python.envFile": "/workspaces/sailbot_workspace/.env",
+        // linter: flake8 extension
+        // copy from https://github.com/ament/ament_lint/blob/humble/ament_flake8/ament_flake8/configuration/ament_flake8.ini
+        // except for import order style = google: use isort with black profile instead
+        "flake8.args": [
+            "--config=${workspaceFolder:sailbot_workspace}/.flake8",
+        ],
+        "flake8.interpreter": ["/usr/bin/python3"],
+        // formatter: black and isort extensions
+        "black-formatter.interpreter": ["/usr/bin/python3"],
+        "black-formatter.args": [
+            "--line-length=99",
+        ],
+        "isort.args":["--profile=black"],
+        "isort.interpreter": ["/usr/bin/python3"],
+        // test framework: pytest
+        "python.testing.cwd": "/workspaces/sailbot_workspace/src",
+        "python.testing.pytestEnabled": true,
+        // type checker: mypy
+        "mypy-type-checker.args": [
+            "--ignore-missing-imports",
+        ],
+        "mypy-type-checker.interpreter": ["/usr/bin/python3"],
+
+        // c/c++
+
+        "C_Cpp.intelliSenseEngine": "disabled",  // Use clangd intellisense instead (it's better)
+
+        "clangd.path": "/usr/bin/clangd",
+        "clangd.onConfigChanged": "restart",
+        "clangd.arguments": [
+            "-log=verbose",
+            "-pretty",
+            "--background-index",
+            "--compile-commands-dir=/workspaces/sailbot_workspace/build/",
+            "--header-insertion=never"
+        ],
+
+        "[cpp]": {
+            "editor.defaultFormatter": "llvm-vs-code-extensions.vscode-clangd",
+            "editor.formatOnSave": true,
+            "editor.rulers": [120],
+        },
+        "[c]": {
+            "editor.defaultFormatter": "llvm-vs-code-extensions.vscode-clangd",
+            "editor.formatOnSave": true,
+            "editor.rulers": [120],
+        },
+
+		"testMate.cpp.discovery.loadOnStartup": true,
+		// The following setting just changes the default prelaunch task from "build" to "debug"
+		"testMate.cpp.test.advancedExecutables": [
+			{
+				"pattern": "{build,Build,BUILD,out,Out,OUT}/**/*{test,Test,TEST}*",
+				"runTask": {
+					"before": [ "debug" ]
+				}
+			}
+		],
+  },
   "inputs": [
     {
       "id": "package",
