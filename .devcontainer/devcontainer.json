@@ -29,19 +29,44 @@
 	"customizations": {
 		"vscode": {
 			"extensions": [
+
+				// Template repo
 				"althack.ament-task-provider",
-				"betwo.b2-catkin-tools",
 				"DotJoshJohnson.xml",
 				"ms-azuretools.vscode-docker",
-				"ms-iot.vscode-ros",
 				"ms-python.python",
 				"ms-vscode.cpptools",
 				"redhat.vscode-yaml",
 				"smilerobotics.urdf",
 				"streetsidesoftware.code-spell-checker",
 				"twxs.cmake",
+				"ms-python.flake8",
 				"yzhang.markdown-all-in-one",
-				"zachflower.uncrustify"
+				//"zachflower.uncrustify"
+				
+				// Github copilot
+				"github.vscode-github-actions",
+				"Gruntfuggly.todo-tree",
+				"jebbs.plantuml",
+				"jeff-hykin.better-cpp-syntax",
+				"KevinRose.vsc-python-indent",
+				"llvm-vs-code-extensions.vscode-clangd",
+				"matepek.vscode-catch2-test-adapter",
+				"mechatroner.rainbow-csv",
+				"mongodb.mongodb-vscode",
+				"ms-iot.vscode-ros",
+				"ms-python.black-formatter",
+				"ms-python.isort",
+				"ms-python.vscode-pylance",
+				"ms-toolsai.jupyter",
+				"ms-vsliveshare.vsliveshare",
+				"ms-python.mypy-type-checker",
+				"njpwerner.autodocstring",
+				"randomfractalsinc.geo-data-viewer",
+				"stevejpurves.cucumber",
+				"streetsidesoftware.code-spell-checker",
+				"vscode-icons-team.vscode-icons",
+				"zxh404.vscode-proto3"
 			]
 		}
 	}
