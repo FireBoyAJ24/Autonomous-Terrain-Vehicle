@@ -1,1 +1,0 @@
-float32 power # power of the signal sent to the motor
