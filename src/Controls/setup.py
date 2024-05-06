@@ -20,6 +20,8 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
+            'controller = controls.node_control:main',
+            'listener = controls.subscriber_member_function:main',
         ],
     },
 )
