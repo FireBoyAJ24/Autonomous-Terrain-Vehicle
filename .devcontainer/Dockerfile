@@ -26,10 +26,6 @@ RUN apt-get update \
    && rm -rf /var/lib/apt/lists/*
 ENV DEBIAN_FRONTEND=dialog
 
-# downgrade setuptools
-# https://answers.ros.org/question/396439/setuptoolsdeprecationwarning-setuppy-install-is-deprecated-use-build-and-pip-and-other-standards-based-tools/?answer=400052#post-id-400052
-RUN pip3 install setuptools==58.2.0
-
 
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update \
