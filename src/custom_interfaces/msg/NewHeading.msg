@@ -1,1 +1,0 @@
-float32 new_heading # units in degrees
