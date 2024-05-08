@@ -1,0 +1,17 @@
+<?xml version="1.0" ?>
+<sdf version='1.10'>
+  <world name='demo'>
+    <plugin
+        filename="gz-sim-physics-system"
+        name="gz::sim::systems::Physics">
+    </plugin>
+    <plugin
+        filename="gz-sim-scene-broadcaster-system"
+        name="gz::sim::systems::SceneBroadcaster">
+    </plugin>
+    </world>
+
+
+</sensor>
+
+</sdf>
