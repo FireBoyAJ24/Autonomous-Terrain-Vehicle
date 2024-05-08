@@ -1,6 +1,6 @@
 import rclpy
 from rclpy.node import Node
-from custom_interfaces.msg import SonarSensor, CurrentHeading, NewHeading
+from custom_interfaces.msg import Sensor, CurrentHeading, NewHeading
 
 from std_msgs.msg import String
 
@@ -20,19 +20,19 @@ class NavigationNode(Node):
         
 
     def __init_attributes(self):
-        self.__sonar_sensor = SonarSensor()
+        self.__sonar_sensor = Sensor()
         self.__heading = CurrentHeading()
 
     def __init_subscriptions(self):
         
         self.__sonar_sensor = self.create_subscription(
-            msg_type=SonarSensor,
+            msg_type=Sensor,
             topic='sonar_sensor',
             callback=self.__sonar_sensor_callback,
             qos_profile=1,
         )
     
-    def __sonar_sensor_callback(self, msg: SonarSensor) -> None:
+    def __sonar_sensor_callback(self, msg: Sensor) -> None:
         self.get_logger().info('Sonar Sensor: %d' % msg.sonar_sensor)
         self.__sonar_sensor.sonar_data = msg.sonar_data
     

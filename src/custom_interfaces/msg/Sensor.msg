@@ -1,0 +1,1 @@
+float32 sensor # Sensor reading
