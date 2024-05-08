@@ -1,6 +1,6 @@
 import rclpy
 from rclpy.node import Node
-from custom_interfaces.msg import SonarSensor, CurrentHeading, NewHeading
+from custom_interfaces.msg import Sensor, CurrentHeading, NewHeading
 
 from std_msgs.msg import String
 
@@ -20,43 +20,55 @@ class NavigationNode(Node):
         
 
     def __init_attributes(self):
-        self.__sonar_sensor = SonarSensor()
-        self.__heading = CurrentHeading()
+        self.__sensor = Sensor()
+        self.__new_heading = NewHeading()
+        self.__current_heading = CurrentHeading()
 
     def __init_subscriptions(self):
         
-        self.__sonar_sensor = self.create_subscription(
-            msg_type=SonarSensor,
+        self.__sensor = self.create_subscription(
+            msg_type=Sensor,
             topic='sonar_sensor',
-            callback=self.__sonar_sensor_callback,
+            callback=self.__sensor_callback,
+            qos_profile=1,
+        )
+        
+        self.__current_heading = self.create_subscription(
+            msg_type=CurrentHeading,
+            topic='current_heading',
+            callback=self.__current_heading_callback,
             qos_profile=1,
         )
     
-    def __sonar_sensor_callback(self, msg: SonarSensor) -> None:
+    def __sensor_callback(self, msg: Sensor) -> None:
         self.get_logger().info('Sonar Sensor: %d' % msg.sonar_sensor)
-        self.__sonar_sensor.sonar_data = msg.sonar_data
+        self.__sensor.sonar_data = msg.sonar_data
+    
+    def __current_heading_callback(self, msg: CurrentHeading) -> None:
+        self.get_logger().info('Current Heading: %d' % msg.current_heading)
+        self.__current_heading.current_heading = msg.current_heading
     
     def __init_publishers(self):
         
-        self.__heading_pub = self.create_publisher(
-            msg_type=CurrentHeading,
-            topic='current_heading',
+        self.__new_heading_pub = self.create_publisher(
+            msg_type=NewHeading,
+            topic='new_heading',
             qos_profile=1,
         )
         
 
     def __publish(self):
         
-        current_heading_msg = CurrentHeading()
+        new_heading_msg = NewHeading()
         
-        self.__heading = self.__get_navigation_values()
+        self.__new_heading = self.__get_navigation_values()
         
-        current_heading_msg.current_heading = self.__heading
+        new_heading_msg.new_heading = self.__new_heading
 
 
-        self.__heading_pub.publish(current_heading_msg)
+        self.__new_heading_pub.publish(new_heading_msg)
         
-        self.get_logger().info(f"Publishing heading: {current_heading_msg.current_heading}")
+        self.get_logger().info(f"Publishing new heading: {new_heading_msg.new_heading}")
 
     ## TODO
     def __get_navigation_values(self):
