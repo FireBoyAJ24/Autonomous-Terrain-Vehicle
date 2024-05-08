@@ -1,1 +1,1 @@
-float32 motor_power # Signal Power to the motor
+float32 power # Signal Power to the motor
