@@ -3,7 +3,7 @@ from rclpy.node import Node
 from custom_interfaces.msg import MotorPower, Steering, CurrentHeading, NewHeading
 
 from std_msgs.msg import String
-
+import numpy as np
 
 class VehicleControllerNode(Node):
     """
@@ -11,7 +11,7 @@ class VehicleControllerNode(Node):
     
     """
     def __init__(self):
-        super().__init__('VehicleControllerNode')
+        super().__init__()
         
         self.__init_attributes()
         self.__init_publishers()
@@ -68,8 +68,9 @@ class VehicleControllerNode(Node):
         
         motor_power_msg = MotorPower()
         steering_angle_msg = Steering()
+        controller = Controller()
         
-        self.__motor_power, self.__steering_angle = self.__get_control_values()
+        self.__motor_power, self.__steering_angle = controller.get_control_values()
         
         motor_power_msg.power = self.__motor_power
         steering_angle_msg.steering_angle = self.__steering_angle
@@ -81,6 +82,7 @@ class VehicleControllerNode(Node):
 
     ##TODO
     def __get_control_values(self):
+        self.get_logger().info(f"Receiving Current and New Heading: {self.__current_heading.current_heading}, {self.__new_heading.new_heading}")
         
         return 0.0, 0.0
 
@@ -89,12 +91,16 @@ class VehicleControllerNode(Node):
         self.get_logger().info("Initializing timer callbacks")
         self.timer = self.create_timer(0.5, self.__publish)
 
-class Controller:
+class Controller(Vehicle):
     def __init__(self):
-        node = VehicleControllerNode()
-        self.__motor_power = node.__motor_power 
-        self.__steering_angle = 0.0
-
+        super.__init__()
+        
+        
+    def get_control_values(self, steering_angle) -> float:
+        
+        turning_radius = self.wheel_base/(np.sin(steering_angle)) + (self.tire_width)/2
+        
+        return steering_angle
 
 
 def main(args=None):
