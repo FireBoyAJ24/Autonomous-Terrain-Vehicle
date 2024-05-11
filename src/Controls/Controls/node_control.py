@@ -95,11 +95,13 @@ class Controller(Vehicle):
     def __init__(self):
         super.__init__()
         
+        # buffer is the safe distance the vehicle will avoid from the collision
+        self.buffer = 0.06
         
-    def get_control_values(self, steering_angle) -> float:
         
-        turning_radius = self.wheel_base/(np.sin(steering_angle)) + (self.tire_width)/2
-        
+    def get_control_values(self, distance) -> float:
+        turning_radius = distance - self.buffer
+        steering_angle =  np.arcsin(self.wheel_base/(self.turning_radius - (self.tire_width)/2))
         return steering_angle
 
 
