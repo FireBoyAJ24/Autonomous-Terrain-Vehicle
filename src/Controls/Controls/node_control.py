@@ -24,6 +24,7 @@ class VehicleControllerNode(Node):
         self.__motor_power = MotorPower()
         self.__steering_angle = Steering()
         self.__current_heading = CurrentHeading()
+        self.__new_heading = NewHeading()
 
     def __init_subscriptions(self):
         
@@ -33,10 +34,21 @@ class VehicleControllerNode(Node):
             callback=self.__current_heading_callback,
             qos_profile=1,
         )
+        
+        self.__new_heading_sub = self.create_subscription(
+            msg_type=NewHeading,
+            topic='new_heading',
+            callback=self.__new_heading_callback,
+            qos_profile=1,
+        )
     
     def __current_heading_callback(self, msg: CurrentHeading) -> None:
-        self.get_logger().info('New Heading: %d' % msg.current_heading)
+        self.get_logger().info('Current Heading: %d' % msg.current_heading)
         self.__current_heading.current_heading = msg.current_heading
+    
+    def __new_heading_callback(self, msg: NewHeading) -> None:
+        self.get_logger().info('New Heading: %d' % msg.new_heading)
+        self.__current_heading.new_heading = msg.new_heading
     
     def __init_publishers(self):
         
@@ -60,12 +72,12 @@ class VehicleControllerNode(Node):
         self.__motor_power, self.__steering_angle = self.__get_control_values()
         
         motor_power_msg.power = self.__motor_power
-        steering_angle_msg.steering = self.__steering_angle
+        steering_angle_msg.steering_angle = self.__steering_angle
 
         self.__motor_power_pub.publish(motor_power_msg)
         self.__steering_angle_pub.publish(steering_angle_msg)
         
-        self.get_logger().info(f"Publishing Motor Power and Steering Angle: {motor_power_msg.power}, {steering_angle_msg.steering}")
+        self.get_logger().info(f"Publishing Motor Power and Steering Angle: {motor_power_msg.power}, {steering_angle_msg.steering_angle}")
 
     ##TODO
     def __get_control_values(self):
