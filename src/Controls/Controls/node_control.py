@@ -1,7 +1,7 @@
 import rclpy
 from rclpy.node import Node
 from custom_interfaces.msg import MotorPower, Steering, CurrentHeading, NewHeading
-
+from controller import Controller
 from std_msgs.msg import String
 
 
@@ -33,10 +33,21 @@ class VehicleControllerNode(Node):
             callback=self.__current_heading_callback,
             qos_profile=1,
         )
+        
+        self.__new_heading_sub = self.create_subscription(
+            msg_type=NewHeading,
+            topic='new_heading',
+            callback=self.__new_heading_callback,
+            qos_profile=1,
+        )
     
     def __current_heading_callback(self, msg: CurrentHeading) -> None:
         self.get_logger().info('New Heading: %d' % msg.current_heading)
         self.__current_heading.current_heading = msg.current_heading
+    
+    def __new_heading_callback(self, msg: NewHeading) -> None:
+        self.get_logger().info('New Heading: %d' % msg.new_heading)
+        self.__current_heading.new_heading = msg.new_heading
     
     def __init_publishers(self):
         
@@ -68,20 +79,20 @@ class VehicleControllerNode(Node):
         self.get_logger().info(f"Publishing Motor Power and Steering Angle: {motor_power_msg.power}, {steering_angle_msg.steering}")
 
     ##TODO
-    def __get_control_values(self):
+    def __get_control_values(self) -> tuple[float, float]:
         
-        return 0.0, 0.0
+        controller = Controller()
+        
+        motor_power = controller.get_motor_speed()
+        steering_angle = controller.get_steering_angle()
+        
+        
+        return motor_power, steering_angle
 
     def __init_timer_callbacks(self):
         
         self.get_logger().info("Initializing timer callbacks")
         self.timer = self.create_timer(0.5, self.__publish)
-
-class Controller:
-    def __init__(self):
-        node = VehicleControllerNode()
-        self.__motor_power = node.__motor_power 
-        self.__steering_angle = 0.0
 
 
 
