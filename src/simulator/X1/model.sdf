@@ -9,7 +9,7 @@
                             <collision>collision</collision>
                         </contact>
                 </sensor>
-                `
+
                 <inertial>
                 <pose frame="">0.0 0.0 0.062 0 0 0</pose>
                 <mass>46.034</mass>
