@@ -1,0 +1,476 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="Vehicle">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="0.0550010502932839 0.00335 -0.107537951269826"
+        rpy="0 0 0" />
+      <mass
+        value="0.134222467498483" />
+      <inertia
+        ixx="0.000530200326568241"
+        ixy="-1.76282741803255E-21"
+        ixz="5.67919391312208E-09"
+        iyy="0.000664910161234467"
+        iyz="-1.0649504531209E-21"
+        izz="0.000135714042427226" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Vehicle/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Vehicle/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="Left Steer Link">
+    <inertial>
+      <origin
+        xyz="0.0500809222850922 0.00656724894550813 -0.00535919272784974"
+        rpy="0 0 0" />
+      <mass
+        value="0.00324602578455271" />
+      <inertia
+        ixx="4.48150642389345E-08"
+        ixy="4.84727360608689E-10"
+        ixz="1.77018588678701E-08"
+        iyy="1.49323356536948E-06"
+        iyz="-6.02970654671201E-12"
+        izz="1.49849378812535E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Vehicle/meshes/Left Steer Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.698039215686274 0.698039215686274 0.698039215686274 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Vehicle/meshes/Left Steer Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Left Steer Link"
+    type="prismatic">
+    <origin
+      xyz="0.0013096 0.19439 0.0067"
+      rpy="1.5708 0 -0.012439" />
+    <parent
+      link="base_link" />
+    <child
+      link="Left Steer Link" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="Left Wheel Hub Steer Link">
+    <inertial>
+      <origin
+        xyz="-0.00779963377175908 -0.00403158824266521 -0.0131195801197776"
+        rpy="0 0 0" />
+      <mass
+        value="0.0050366617475554" />
+      <inertia
+        ixx="7.34761078247964E-07"
+        ixy="-1.72051817338608E-10"
+        ixz="-4.97521640714242E-08"
+        iyy="6.45569810746413E-07"
+        iyz="3.09626826661675E-11"
+        izz="4.97776139373279E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Vehicle/meshes/Left Wheel Hub Steer Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.698039215686274 0.698039215686274 0.698039215686274 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Vehicle/meshes/Left Wheel Hub Steer Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Wheel Hub Steer Link"
+    type="fixed">
+    <origin
+      xyz="0 0.01 0"
+      rpy="0 0 0" />
+    <parent
+      link="Left Steer Link" />
+    <child
+      link="Left Wheel Hub Steer Link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="Left Wheel Hub and Wheel">
+    <inertial>
+      <origin
+        xyz="-6.61541654789488E-11 -9.66353775600642E-07 0.00623278746417051"
+        rpy="0 0 0" />
+      <mass
+        value="0.0677074647787253" />
+      <inertia
+        ixx="5.43157170674138E-05"
+        ixy="-6.1311791460183E-14"
+        ixz="-3.01711628093336E-14"
+        iyy="5.44686876512768E-05"
+        iyz="-1.74833499516118E-10"
+        izz="9.26633769711813E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Vehicle/meshes/Left Wheel Hub and Wheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.698039215686274 0.698039215686274 0.698039215686274 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Vehicle/meshes/Left Wheel Hub and Wheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Wheel Hub and Wheel"
+    type="fixed">
+    <origin
+      xyz="-0.012826 -0.005 -0.013734"
+      rpy="3.1416 1.3929 3.1416" />
+    <parent
+      link="Left Wheel Hub Steer Link" />
+    <child
+      link="Left Wheel Hub and Wheel" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="Right Steer Link">
+    <inertial>
+      <origin
+        xyz="-0.0223911240224031 -0.00437408682341831 -0.00550388030856544"
+        rpy="0 0 0" />
+      <mass
+        value="0.00324602578455271" />
+      <inertia
+        ixx="4.50263273013228E-08"
+        ixy="4.84691378468033E-10"
+        ixz="-2.47770580583833E-08"
+        iyy="1.49323356536949E-06"
+        iyz="8.44032715543382E-12"
+        izz="1.49828252506296E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Vehicle/meshes/Right Steer Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.698039215686274 0.698039215686274 0.698039215686274 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Vehicle/meshes/Right Steer Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Right Steer Link"
+    type="fixed">
+    <origin
+      xyz="0.089208 0.19402 0.017576"
+      rpy="1.5708 0 0.017412" />
+    <parent
+      link="base_link" />
+    <child
+      link="Right Steer Link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="Right Wheel Hub Steer Link">
+    <inertial>
+      <origin
+        xyz="0.0319624530700555 -0.0049498024285375 -0.0173300631970307"
+        rpy="0 0 0" />
+      <mass
+        value="0.0050366617475554" />
+      <inertia
+        ixx="7.35579409094345E-07"
+        ixy="1.72306275732386E-10"
+        ixz="-4.74913849682736E-08"
+        iyy="6.45569810746412E-07"
+        iyz="-2.95137749303822E-11"
+        izz="4.96957808526895E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Vehicle/meshes/Right Wheel Hub Steer Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.698039215686274 0.698039215686274 0.698039215686274 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Vehicle/meshes/Right Wheel Hub Steer Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Wheel Hub Steer Link"
+    type="fixed">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="Right Steer Link" />
+    <child
+      link="Right Wheel Hub Steer Link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="Right Wheel Hub and Wheel">
+    <inertial>
+      <origin
+        xyz="-9.66302848577627E-07 5.72762898221058E-09 -0.0198868265223648"
+        rpy="0 0 0" />
+      <mass
+        value="0.0677074647786905" />
+      <inertia
+        ixx="5.44686822730286E-05"
+        ixy="-9.02672641962002E-10"
+        ixz="-1.74786892644534E-10"
+        iyy="5.43157224041067E-05"
+        iyz="1.03130632695845E-12"
+        izz="9.26633769299387E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Vehicle/meshes/Right Wheel Hub and Wheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Vehicle/meshes/Right Wheel Hub and Wheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Wheel Hub and Wheel"
+    type="continuous">
+    <origin
+      xyz="0.010794 -0.0058763 -0.014875"
+      rpy="-1.4014 0.0058168 1.5718" />
+    <parent
+      link="Right Wheel Hub Steer Link" />
+    <child
+      link="Right Wheel Hub and Wheel" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="Left Rear Wheel">
+    <inertial>
+      <origin
+        xyz="2.59506877792193E-11 -1.79577099718164E-11 -0.0256469304168855"
+        rpy="0 0 0" />
+      <mass
+        value="0.0703483794651665" />
+      <inertia
+        ixx="0.000107210569445497"
+        ixy="-1.47189315753732E-17"
+        ixz="2.78834562993712E-14"
+        iyy="0.000107210569471016"
+        iyz="-1.11056955844979E-14"
+        izz="9.19292783481113E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Vehicle/meshes/Left Rear Wheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Vehicle/meshes/Left Rear Wheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Left Rear Wheel"
+    type="continuous">
+    <origin
+      xyz="0 0.0085 0.0147"
+      rpy="1.5708 0 1.5708" />
+    <parent
+      link="base_link" />
+    <child
+      link="Left Rear Wheel" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="Right Rear Wheel">
+    <inertial>
+      <origin
+        xyz="8.31124405409334E-12 2.1762304631967E-11 -0.142429823378982"
+        rpy="0 0 0" />
+      <mass
+        value="0.0703483794651603" />
+      <inertia
+        ixx="0.000107210569450214"
+        ixy="1.04550360881771E-14"
+        ixz="3.04797373758211E-15"
+        iyy="0.00010721056946958"
+        iyz="2.17904001792476E-14"
+        izz="9.19292783513957E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Vehicle/meshes/Right Rear Wheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Vehicle/meshes/Right Rear Wheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Right Rear Wheel"
+    type="continuous">
+    <origin
+      xyz="0 0.0085 0.0147"
+      rpy="-1.5708 -1.2946 1.5708" />
+    <parent
+      link="base_link" />
+    <child
+      link="Right Rear Wheel" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+</robot>

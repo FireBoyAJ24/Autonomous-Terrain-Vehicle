@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sdf version="1.6">
+        <model name="robotics_gym">
+                <static>true</static>
+                <link name="base_link">
+                <visual name="visual">
+                        <geometry>
+                        <mesh>
+                                <uri>meshes/my_robotics_gym.dae</uri>
+                                <scale>5 5 5</scale>
+                        </mesh>
+                        </geometry>
+                        <material>
+                        <ambient>0.56 0.15 0.15 0.33</ambient>
+                        <emissive>0.647058823 0.16470588 0.16470588 1</emissive>
+                        <specular>0.56 0.15 0.15 0.33</specular>
+                        </material>
+                </visual>        
+                </link>
+                <pose>-25 -25 0 0 0 0</pose>
+        </model>
+</sdf>
