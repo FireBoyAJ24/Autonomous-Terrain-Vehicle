@@ -14,3 +14,13 @@
 - ros_topic_name: "depth_camera"
   ros_type_name: "sensor_msgs/msg/Image"
   gz_type_name: "ignition.msgs.Image"
+
+# Set just ROS topic name, applies to both
+- ros_topic_name: "magnetometer"
+  ros_type_name: "sensor_msgs/msg/MagneticField"
+  gz_type_name: "ignition.msgs.Magnetometer"
+
+# Set just ROS topic name, applies to both
+- ros_topic_name: "beacon_signal"
+  ros_type_name: ""
+  gz_type_name: "ignition.msgs."

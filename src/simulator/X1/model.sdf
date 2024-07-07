@@ -3,13 +3,22 @@
         <model name="X1">
         <enable_wind>1</enable_wind>
         <static>0</static>
+        <plugin
+        filename="ignition-gazebo-comms-endpoint-system"
+        name="ignition::gazebo::systems::CommsEndpoint">
+                <address>beacon_vehicle_signal</address>
+                <topic>becon_vehicle_signal/rx</topic>
+        </plugin>
         <link name="base_link">
                 <sensor name='sensor_contact' type='contact'>
                         <contact>
                             <collision>collision</collision>
                         </contact>
                 </sensor>
-
+                <sensor name="magnetometer_sensor" type="magnetometer">
+                        <always_on>1</always_on>
+                        <update_rate>10</update_rate>
+                </sensor>
                 <inertial>
                 <pose frame="">0.0 0.0 0.062 0 0 0</pose>
                 <mass>46.034</mass>

@@ -1,0 +1,3 @@
+/workspaces/Autonomous-Terrain-Vehicle/src/simulator/build/CMakeFiles/publisher.dir
+/workspaces/Autonomous-Terrain-Vehicle/src/simulator/build/CMakeFiles/edit_cache.dir
+/workspaces/Autonomous-Terrain-Vehicle/src/simulator/build/CMakeFiles/rebuild_cache.dir

@@ -62,6 +62,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get install -y ros-${ROS_DISTRO}-ros-gz
 ENV DEBIAN_FRONTEND=dialog
 
+
 # ENV DEBIAN_FRONTEND=noninteractive
 # RUN sudo sh -c 'echo "deb http://packages.osrfoundation.org/gazebo/ubuntu-stable `lsb_release -cs` main" > /etc/apt/sources.list.d/gazebo-stable.list'
 # RUN wget http://packages.osrfoundation.org/gazebo.key -O - | sudo apt-key add -
