@@ -82,8 +82,12 @@
                 </include>
 
 
+                <!-- <include>
+                        <uri>main_car/model.sdf</uri>
+                </include> -->
+
                 <include>
-                        <uri>X1/model.sdf</uri>
+                        <uri>main_car/urdf/main_car.sdf</uri>
                 </include>
 
                 <include>

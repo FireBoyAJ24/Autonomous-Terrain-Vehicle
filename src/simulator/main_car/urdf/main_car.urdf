@@ -1,0 +1,375 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="main_car">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="0.0550010502932839 0.107537951269826 0.00334999999999999"
+        rpy="0 0 0" />
+      <mass
+        value="0.134222467498483" />
+      <inertia
+        ixx="0.000530200326568241"
+        ixy="-5.67919391311907E-09"
+        ixz="-1.76248030298264E-21"
+        iyy="0.000135714042427226"
+        iyz="3.34707369393806E-20"
+        izz="0.000664910161234466" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://main_car/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://main_car/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="front_left_wheel_rot">
+    <inertial>
+      <origin
+        xyz="0.0140059336705225 -0.000298132524582245 2.0136146222649E-11"
+        rpy="0 0 0" />
+      <mass
+        value="0.0632357163080549" />
+      <inertia
+        ixx="9.19085546593651E-05"
+        ixy="-8.09825501204194E-07"
+        ixz="1.20163261773059E-14"
+        iyy="5.38810910625253E-05"
+        iyz="6.77370125186707E-15"
+        izz="5.38638529545862E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://main_car/meshes/front_left_wheel_rot.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://main_car/meshes/front_left_wheel_rot.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="front_left_wheel_rot_j"
+    type="continuous">
+    <origin
+      xyz="-0.0212429479041969 0.211254558119221 0.0117"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="front_left_wheel_rot" />
+    <axis
+      xyz="0.999773526729787 -0.0212813357260371 0" />
+  </joint>
+  <link
+    name="front_right_wheel_rot">
+    <inertial>
+      <origin
+        xyz="-0.0140091063539903 3.84884683318765E-07 2.00286714296949E-11"
+        rpy="0 0 0" />
+      <mass
+        value="0.063235716308098" />
+      <inertia
+        ixx="9.19257926846956E-05"
+        ixy="-1.04565885334305E-09"
+        ixz="-1.11213198402949E-14"
+        iyy="5.38638529697797E-05"
+        iyz="2.26041848100353E-14"
+        izz="5.38638529842861E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://main_car/meshes/front_right_wheel_rot.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://main_car/meshes/front_right_wheel_rot.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="front_right_wheel_rot_j"
+    type="continuous">
+    <origin
+      xyz="0.131001462865903 0.210751140085241 0.0117"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="front_right_wheel_rot" />
+    <axis
+      xyz="0.999773526729787 -0.0212813357260373 0" />
+  </joint>
+  <link
+    name="back_right_wheel_rot">
+    <inertial>
+      <origin
+        xyz="-0.0140091063592719 2.5813979426248E-11 2.29318820876845E-12"
+        rpy="0 0 0" />
+      <mass
+        value="0.0632357163080607" />
+      <inertia
+        ixx="9.19257927563821E-05"
+        ixy="-2.17970510345369E-14"
+        ixz="3.01020545320689E-15"
+        iyy="5.38638529833055E-05"
+        iyz="-6.77675512652883E-15"
+        izz="5.38638529849817E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://main_car/meshes/back_right_wheel_rot.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://main_car/meshes/back_right_wheel_rot.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="back_right_wheel_rot_j"
+    type="continuous">
+    <origin
+      xyz="0.166149999999796 0.00849999999999998 0.0147"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="back_right_wheel_rot" />
+    <axis
+      xyz="1 0 0" />
+  </joint>
+  <link
+    name="back_left_wheel_rot">
+    <inertial>
+      <origin
+        xyz="0.0140091063592776 2.88707530105015E-11 -1.99775300468996E-11"
+        rpy="0 0 0" />
+      <mass
+        value="0.0632357163080669" />
+      <inertia
+        ixx="9.19257927241759E-05"
+        ixy="2.78841514454636E-14"
+        ixz="-1.11056134188343E-14"
+        iyy="5.38638529869599E-05"
+        iyz="-1.5365130409098E-17"
+        izz="5.38638529491242E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://main_car/meshes/back_left_wheel_rot.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://main_car/meshes/back_left_wheel_rot.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="back_left_wheel_rot_j"
+    type="continuous">
+    <origin
+      xyz="-0.0488500000002041 0.00849999999999978 0.0147000000000001"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="back_left_wheel_rot" />
+    <axis
+      xyz="1 0 0" />
+  </joint>
+  <link
+    name="front_left_wheel_steer">
+    <inertial>
+      <origin
+        xyz="0.0140059336705225 -0.000298132524582245 2.01361479573725E-11"
+        rpy="0 0 0" />
+      <mass
+        value="0.0632357163080549" />
+      <inertia
+        ixx="9.19085546593651E-05"
+        ixy="-8.09825501204194E-07"
+        ixz="1.20163266135144E-14"
+        iyy="5.38810910625253E-05"
+        iyz="6.77370075113603E-15"
+        izz="5.38638529545862E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://main_car/meshes/front_left_wheel_steer.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://main_car/meshes/front_left_wheel_steer.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="front_left_wheel_steer_j"
+    type="revolute">
+    <origin
+      xyz="-0.0212429479041969 0.211254558119221 0.0117"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="front_left_wheel_steer" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="5.6723"
+      upper="0.61087"
+      effort="0"
+      velocity="0.5" />
+  </joint>
+  <link
+    name="front_right_wheel_steer">
+    <inertial>
+      <origin
+        xyz="-0.0140091063539903 3.84884683318765E-07 2.00286714296949E-11"
+        rpy="0 0 0" />
+      <mass
+        value="0.063235716308098" />
+      <inertia
+        ixx="9.19257926846956E-05"
+        ixy="-1.04565885334184E-09"
+        ixz="-1.11213189597999E-14"
+        iyy="5.38638529697797E-05"
+        iyz="2.26041841385703E-14"
+        izz="5.38638529842861E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://main_car/meshes/front_right_wheel_steer.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://main_car/meshes/front_right_wheel_steer.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="front_right_wheel_steer_j"
+    type="revolute">
+    <origin
+      xyz="0.131001462865903 0.210751140085241 0.0117"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="front_right_wheel_steer" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="5.6723"
+      upper="0.61087"
+      effort="0"
+      velocity="0.5" />
+  </joint>
+</robot>
