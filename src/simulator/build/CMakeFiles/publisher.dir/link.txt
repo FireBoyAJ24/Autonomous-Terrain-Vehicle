@@ -1,1 +1,0 @@
-/usr/bin/c++ CMakeFiles/publisher.dir/publisher.cc.o -o publisher  /usr/lib/x86_64-linux-gnu/libignition-transport11.so.11.4.1 /usr/lib/x86_64-linux-gnu/libignition-msgs8.so.8.7.0 /usr/lib/x86_64-linux-gnu/libprotobuf.so /usr/lib/x86_64-linux-gnu/libignition-math6.so.6.15.1 /usr/lib/x86_64-linux-gnu/libuuid.so /usr/lib/x86_64-linux-gnu/libuuid.so 

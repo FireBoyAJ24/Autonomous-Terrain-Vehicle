@@ -1,10 +1,30 @@
-cmake_minimum_required(VERSION 3.10.2 FATAL_ERROR)
+cmake_minimum_required(VERSION 3.5)
 
-project(ign-gazebo-comms)
+project(simulator)
 
-find_package(ignition-transport11 QUIET REQUIRED)
-set(IGN_TRANSPORT_VER ${ignition-transport11_VERSION_MAJOR})
+find_package(ament_cmake REQUIRED)
 
-add_executable(publisher publisher.cc)
-target_link_libraries(publisher
-  ignition-transport${IGN_TRANSPORT_VER}::core)
+# Collect all source files
+set(src)
+add_subdirectory(description)
+
+
+install(
+  DIRECTORY
+    description/
+  DESTINATION share/${PROJECT_NAME}/description
+)
+
+install(
+  DIRECTORY
+    bridge/
+  DESTINATION share/${PROJECT_NAME}/bridge
+)
+
+if(BUILD_TESTING)
+  find_package(ament_lint_auto REQUIRED)
+  ament_lint_auto_find_test_dependencies()
+endif()
+
+
+ament_package()
