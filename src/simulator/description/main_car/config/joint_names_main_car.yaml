@@ -1,1 +1,0 @@
-controller_joint_names: ['', 'front_left_wheel_rot_j', 'front_right_wheel_rot_j', 'back_right_wheel_rot_j', 'back_left_wheel_rot_j', 'front_left_wheel_steer_j', 'front_right_wheel_steer_j', ]

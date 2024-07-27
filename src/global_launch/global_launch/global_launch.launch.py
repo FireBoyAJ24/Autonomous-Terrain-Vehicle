@@ -25,7 +25,10 @@ def generate_launch_description():
     # Load the world file from the package
     with open(
         os.path.join(
-            get_package_share_directory(package_name), "description", "main_car", "main_car.sdf"
+            get_package_share_directory(package_name),
+            "description",
+            "main_car",
+            "main_car.sdf",
         ),
         "r",
     ) as main_car_file:
@@ -38,7 +41,12 @@ def generate_launch_description():
         ),
         launch_arguments={
             "gz_args": PathJoinSubstitution(
-                [pkg_project_description, "World", "robotics_world.sdf"]
+                [
+                    get_package_share_directory(package_name),
+                    "description",
+                    "World",
+                    "robotics_world.sdf",
+                ]
             )
         }.items(),
     )
@@ -62,16 +70,16 @@ def generate_launch_description():
         parameters=[
             {
                 "config_file": os.path.join(
-                    pkg_project_description, "bridge", "gz_ros_path.yaml"
+                    get_package_share_directory(package_name),
+                    "description",
+                    "bridge",
+                    "gz_ros_path.yaml",
                 ),
                 "qos_overrides./tf_static.publisher.durability": "transient_local",
             }
         ],
         output="screen",
     )
-    
-    ign_version = LaunchConfiguration('ign_version')
-    print(dir(ign_version))
 
     return LaunchDescription(
         [

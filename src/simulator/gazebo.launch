@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ignition>
+<gazebo>
 <launch>
   <include
     file="main.sdf" />
@@ -20,4 +20,4 @@
     type="rostopic"
     args="pub /calibrated std_msgs/Bool true" />
 </launch>
-</ignition>
+</gazebo>
