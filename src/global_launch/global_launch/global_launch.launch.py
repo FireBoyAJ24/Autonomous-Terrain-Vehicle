@@ -19,14 +19,12 @@ def generate_launch_description():
 
     # Load the SDF file from the package
     package_name = "simulator"
-    pkg_project_description = get_package_share_directory("description")
-    pkg_ros_gz_sim = get_package_share_directory("ros_gz_sim")
 
     # Load the world file from the package
     with open(
         os.path.join(
             get_package_share_directory(package_name),
-            "description",
+            "model",
             "main_car",
             "main_car.sdf",
         ),
@@ -43,7 +41,7 @@ def generate_launch_description():
             "gz_args": PathJoinSubstitution(
                 [
                     get_package_share_directory(package_name),
-                    "description",
+                    "model",
                     "World",
                     "robotics_world.sdf",
                 ]
@@ -71,7 +69,7 @@ def generate_launch_description():
             {
                 "config_file": os.path.join(
                     get_package_share_directory(package_name),
-                    "description",
+                    "model",
                     "bridge",
                     "gz_ros_path.yaml",
                 ),

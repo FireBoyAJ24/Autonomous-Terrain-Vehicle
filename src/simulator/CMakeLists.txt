@@ -6,13 +6,13 @@ find_package(ament_cmake REQUIRED)
 
 # Collect all source files
 set(src)
-add_subdirectory(description)
+add_subdirectory(model)
 
 
 install(
   DIRECTORY
-    description/
-  DESTINATION share/${PROJECT_NAME}/description
+    model/
+  DESTINATION share/${PROJECT_NAME}/model
 )
 
 install(

@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sdf version="1.6">
+        <world name="robotics_world">
+                <plugin filename="gz-sim-physics-system" name="gz::sim::systems::Physics">
+               </plugin>
+                
+                <plugin
+                filename="gz-sim-user-commands-system"
+                name="gz::sim::systems::UserCommands">
+                </plugin>
+                
+                <plugin
+                filename="gz-sim-scene-broadcaster-system"
+                name="gz::sim::systems::SceneBroadcaster">
+                </plugin>
+                
+                <plugin filename="gz-sim-imu-system"
+                name="gz::sim::systems::Imu">
+                </plugin>
+
+                <plugin filename="gz-sim-contact-system"
+                name="gz::sim::systems::Contact">
+                </plugin>
+
+                <plugin
+                filename="gz-sim-sensors-system"
+                name="gz::sim::systems::Sensors">
+                <render_engine>ogre2</render_engine>
+                </plugin>
+
+                <plugin
+                filename="gz-sim-magnetometer-system"
+                name="gz::sim::systems::Magnetometer">
+                </plugin>
+
+                <plugin
+                filename="gz-sim-rf-comms-system"
+                name="gz::sim::systems::RFComms"> 
+                <range_config>
+                        <max_range>500000.0</max_range>
+                        <fading_exponent>2.6</fading_exponent>
+                        <l0>40</l0>
+                        <sigma>10.0</sigma>
+                </range_config>
+                <radio_config>
+                        <capacity>1000000</capacity>
+                        <tx_power>20</tx_power>
+                        <noise_floor>-90</noise_floor>
+                        <modulation>QPSK</modulation>
+                </radio_config>
+                </plugin>
+
+                <model name="ground_plane">
+                        <static>true</static>
+                        <link name="link">
+                            <collision name="collision">
+                            <geometry>
+                                <plane>
+                                <normal>0 0 1</normal>
+                                </plane>
+                            </geometry>
+                            </collision>
+                            <visual name="visual">
+                            <geometry>
+                                <plane>
+                                <normal>0 0 1</normal>
+                                <size>50 50</size>
+                                </plane>
+                            </geometry>
+                            <material>
+                                <ambient>0.8 0.8 0.8 1</ambient>
+                                <diffuse>0.8 0.8 0.8 1</diffuse>
+                                <specular>0.8 0.8 0.8 1</specular>
+                            </material>
+                            </visual>
+                        </link>
+                </model>
+
+                <model name="robotics_gym">
+                        <static>true</static>
+                        <link name="base_link">
+                        <visual name="visual">
+                                <geometry>
+                                <mesh>
+                                        <uri>meshes/my_robotics_gym.dae</uri>
+                                        <scale>0.5 0.5 0.5</scale>
+                                </mesh>
+                                </geometry>
+                                <material>
+                                <ambient>0.56 0.15 0.15 0.33</ambient>
+                                <emissive>0.647058823 0.16470588 0.16470588 1</emissive>
+                                <specular>0.56 0.15 0.15 0.33</specular>
+                                </material>
+                        </visual>        
+                        </link>
+                        <pose>-25 -25 0 0 0 0</pose>
+                </model>
+
+                <!-- <include>
+                        <uri>main_car/urdf/main_car.sdf</uri>
+                        <pose>-20 -22 0.1 0 0 0</pose>
+                </include> -->
+
+                <include>
+                        <uri>model://beacon/beacon.sdf</uri>
+                </include>
+
+                <model name="main_car">
+                        <self_collide>true</self_collide>
+                        <pose>-20 -22 0.1 0 0 0</pose>
+                        <include merge="true">
+                                <uri>model://main_car/main_car.sdf</uri>
+                        </include>
+
+                        <plugin
+                                filename="gz-sim-joint-state-publisher-system"
+                                name="gz::sim::systems::JointStatePublisher">
+                        </plugin>
+
+                        <plugin
+                                filename="gz-sim-pose-publisher-system"
+                                name="gz::sim::systems::PosePublisher">
+                                <publish_link_pose>true</publish_link_pose>
+                                <use_pose_vector_msg>true</use_pose_vector_msg>
+                                <static_publisher>true</static_publisher>
+                                <static_update_frequency>1</static_update_frequency>
+                        </plugin>
+
+                        <plugin
+                                filename="gz-sim-odometry-publisher-system"
+                                name="gz::sim::systems::OdometryPublisher">
+                                <odom_frame>vehicle/odom</odom_frame>
+                                <robot_base_frame>vehicle</robot_base_frame>
+                        </plugin>
+                </model>
+
+        </world>
+</sdf>
