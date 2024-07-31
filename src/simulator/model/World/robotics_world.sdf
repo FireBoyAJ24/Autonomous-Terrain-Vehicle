@@ -60,7 +60,7 @@
                                 </plane>
                             </geometry>
                             </collision>
-                            <visual name="visual">
+                            <visual name="visual">v
                             <geometry>
                                 <plane>
                                 <normal>0 0 1</normal>
@@ -131,6 +131,13 @@
                                 name="gz::sim::systems::OdometryPublisher">
                                 <odom_frame>vehicle/odom</odom_frame>
                                 <robot_base_frame>vehicle</robot_base_frame>
+                        </plugin>
+
+                        <plugin
+                                filename="gz-sim-comms-endpoint-system"
+                                name="gz::sim::systems::CommsEndpoint">
+                                <address>beacon_vehicle_signal</address>
+                                <topic>becon_vehicle_signal/rx</topic>
                         </plugin>
                 </model>
 

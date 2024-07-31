@@ -1,14 +1,45 @@
 # Set just topic name, applies to both
-# For ros and gz types: https://githusensor_msgs/msg/Imub.com/gazebosim/ros_gz/blob/ros2/ros_gz_bridge/README.md#example-1a-gazebo-transport-talker-and-ros-2-listener
+# For ros and gz types: https://github.com/gazebosim/ros_gz/blob/ros2/ros_gz_bridge/README.md#example-1a-gazebo-transport-talker-and-ros-2-listener
 # To run the gazebo ros path: ros2 run ros_gz_bridge parameter_bridge --ros-args -p config_file:=$WORKPACE/Autonomous-Terrain-Vehicle/src/simulator/gz_ros_path.yaml
+- ros_topic_name: "/main_car/cmd_vel"
+  gz_topic_name: "/model/main_car/cmd_vel"
+  ros_type_name: "geometry_msgs/msg/Twist"
+  gz_type_name: "gz.msgs.Twist"
+  direction: ROS_TO_GZ
+
+- ros_topic_name: "/clock"
+  gz_topic_name: "/clock"
+  ros_type_name: "rosgraph_msgs/msg/Clock"
+  gz_type_name: "gz.msgs.Clock"
+
 - topic_name: "imu"
   ros_type_name: "sensor_msgs/msg/Imu"
   gz_type_name: "gz.msgs.IMU"
+  direction: GZ_TO_ROS
+
+- ros_topic_name: "/joint_states"
+  gz_topic_name: "/world/robotics_world/model/main_car/joint_state"
+  ros_type_name: "sensor_msgs/msg/JointState"
+  gz_type_name: "gz.msgs.Model"
+  direction: GZ_TO_ROS
+
+- ros_topic_name: "/tf"
+  gz_topic_name: "/model/main_car/pose"
+  ros_type_name: "tf2_msgs/msg/TFMessage"
+  gz_type_name: "gz.msgs.Pose_V"
+  direction: GZ_TO_ROS
+
+- ros_topic_name: "/tf_static"
+  gz_topic_name: "/model/main_car/pose_static"
+  ros_type_name: "tf2_msgs/msg/TFMessage"
+  gz_type_name: "gz.msgs.Pose_V"
+  direction: GZ_TO_ROS
 
 # Set just topic name, applies to both
-- topic_name: "contact"
-  ros_type_name: "ros_gz_interfaces/msg/Contacts"
-  gz_type_name: "gz.msgs.Contacts"
+# - topic_name: "contact"
+#   ros_type_name: "ros_gz_interfaces/msg/Contacts"
+#   gz_type_name: "gz.msgs.Contacts"
+#   direction: GZ_TO_ROS
 
 # Set just ROS topic name, applies to both
 # - ros_topic_name: "depth_camera"
@@ -17,19 +48,21 @@
 
 # Set just ROS topic name, applies to both
 - ros_topic_name: "magnetometer"
+  gz_type_name: "/world/robotics_world/model/main_car/link/base_link/sensor/magnetometer_sensor/magnetometer"
   ros_type_name: "sensor_msgs/msg/MagneticField"
   gz_type_name: "gz.msgs.Magnetometer"
 
 
-- ros_topic_name: "wheel_rot"
-  ros_type_name: "std_msgs/msg/Float32"
-  gz_type_name: "gz.msgs.Float"
+# - ros_topic_name: "wheel_rot"
+#   ros_type_name: "std_msgs/msg/Float32"
+#   gz_type_name: "gz.msgs.Float"
 
-- ros_topic_name: "steer_angle"
-  ros_type_name: "std_msgs/msg/Float32"
-  gz_type_name: "gz.msgs.Float"
+# - ros_topic_name: "steer_angle"
+#   ros_type_name: "std_msgs/msg/Float32"
+#   gz_type_name: "gz.msgs.Float"
 
 # Set just ROS topic name, applies to both
 - ros_topic_name: "beacon_signal"
   ros_type_name: "std_msgs/msg/Float32"
   gz_type_name: "gz.msgs.Float"
+  direction: GZ_TO_ROS

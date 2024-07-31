@@ -1,24 +1,16 @@
-<?xml version="1.0"?>
-<sdf version='1.9'>
+<sdf version='1.6'>
   <model name='main_car'>
-    <plugin
-        filename="gz-sim-comms-endpoint-system"
-        name="gz::sim::systems::CommsEndpoint">
-        <address>beacon_vehicle_signal</address>
-        <topic>becon_vehicle_signal/rx</topic>
-    </plugin>
-    
     <link name='base_link'>
       <inertial>
-        <pose>0.0527910074654357 0.08954120651934951 0.0546228756098573 0 0 0</pose>
-        <mass>0.58722731346914003</mass>
+        <pose>0.053067365363443503 0.091337893593515004 0.059402108704340699 0 0 0</pose>
+        <mass>0.61686697820129899</mass>
         <inertia>
-          <ixx>0.00329941636083391</ixx>
-          <ixy>-3.2322166854482797e-08</ixy>
-          <ixz>-3.9626268200619002e-10</ixz>
-          <iyy>0.00070992010600634601</iyy>
-          <iyz>3.4189988236690499e-05</iyz>
-          <izz>0.00286505065874297</izz>
+          <ixx>0.0045189215056851599</ixx>
+          <ixy>-4.6181981135261103e-08</ixy>
+          <ixz>-2.5861429469686499e-09</ixz>
+          <iyy>0.00075994078075240497</iyy>
+          <iyz>-0.000120732123334739</iyz>
+          <izz>0.0040347343208484302</izz>
         </inertia>
       </inertial>
       <collision name='base_link_collision'>
@@ -26,7 +18,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://main_car/meshes/base_link.STL</uri>
+            <uri>model://main_car/meshes/base_link.stl</uri>
           </mesh>
         </geometry>
       </collision>
@@ -35,12 +27,12 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://main_car/meshes/base_link.STL</uri>
+            <uri>model://main_car/meshes/base_link.stl</uri>
           </mesh>
         </geometry>
         <material>
-          <diffuse>0.990196 1 1 1</diffuse>
-          <ambient>0.990196 1 1 1</ambient>
+          <diffuse>0.990196109 1 1 1</diffuse>
+          <ambient>0.990196109 1 1 1</ambient>
         </material>
       </visual>
       <sensor name="imu_sensor" type="imu">
@@ -123,6 +115,7 @@
                 <sensor name='sensor_contact' type='contact'>
                   <contact>
                       <collision>collision</collision>
+                      <collide_bitmask>0x01</collide_bitmask>
                   </contact>
                 </sensor>
                 <sensor name="magnetometer_sensor" type="magnetometer">
@@ -131,14 +124,14 @@
                 </sensor>
     </link>
     <joint name='back_left_wheel_rot_j' type='revolute'>
-      <pose relative_to='base_link'>-0.0488500000002041 0.00849999999999978 0.0147000000000001 0 0 0</pose>
+      <pose relative_to='base_link'>-0.048850000000204098 0.0084999999999997803 0.0147000000000001 0 0 0</pose>
       <parent>base_link</parent>
       <child>back_left_wheel_rot</child>
       <axis>
         <xyz>1 0 0</xyz>
         <limit>
-          <lower>-10000000000000000</lower>
-          <upper>10000000000000000</upper>
+          <lower>-inf</lower>
+          <upper>inf</upper>
         </limit>
         <dynamics>
           <spring_reference>0</spring_reference>
@@ -149,15 +142,15 @@
     <link name='back_left_wheel_rot'>
       <pose relative_to='back_left_wheel_rot_j'>0 0 0 0 0 0</pose>
       <inertial>
-        <pose>0.0140091063592776 2.88698388112296e-11 -1.99776098441795e-11 0 0 0</pose>
+        <pose>0.014009106359277599 2.8869545642962199e-11 -1.9977500556600499e-11 0 0 0</pose>
         <mass>0.063235716308066903</mass>
         <inertia>
-          <ixx>9.1925792787531205e-05</ixx>
-          <ixy>2.7883443012370199e-14</ixy>
-          <ixz>-1.1105689769866701e-14</ixz>
-          <iyy>5.3863852986960303e-05</iyy>
-          <iyz>-1.47196585190975e-17</iyz>
-          <izz>5.3863853012479197e-05</izz>
+          <ixx>9.1925792766411895e-05</ixx>
+          <ixy>2.78823040490674e-14</ixy>
+          <ixz>-1.11055930818235e-14</ixz>
+          <iyy>5.3863852986959802e-05</iyy>
+          <iyz>-1.5334497774820301e-17</iyz>
+          <izz>5.3863852991360402e-05</izz>
         </inertia>
       </inertial>
       <collision name='back_left_wheel_rot_collision'>
@@ -178,20 +171,20 @@
           </mesh>
         </geometry>
         <material>
-          <diffuse>0 1 0.372549 1</diffuse>
-          <ambient>0 1 0.372549 1</ambient>
+          <diffuse>0 1 0.372549027 1</diffuse>
+          <ambient>0 1 0.372549027 1</ambient>
         </material>
       </visual>
     </link>
     <joint name='back_right_wheel_rot_j' type='revolute'>
-      <pose relative_to='base_link'>0.166149999999796 0.00849999999999998 0.0147 0 0 0</pose>
+      <pose relative_to='base_link'>0.16614999999999999 0.0085000000000000006 0.0147 0 0 0</pose>
       <parent>base_link</parent>
       <child>back_right_wheel_rot</child>
       <axis>
         <xyz>1 0 0</xyz>
         <limit>
-          <lower>-10000000000000000</lower>
-          <upper>10000000000000000</upper>
+          <lower>-inf</lower>
+          <upper>inf</upper>
         </limit>
         <dynamics>
           <spring_reference>0</spring_reference>
@@ -202,15 +195,15 @@
     <link name='back_right_wheel_rot'>
       <pose relative_to='back_right_wheel_rot_j'>0 0 0 0 0 0</pose>
       <inertial>
-        <pose>-0.0140091063592719 2.58138736081159e-11 2.29399832463173e-12 0 0 0</pose>
-        <mass>0.063235716308060796</mass>
+        <pose>-0.014009106359271901 2.5814827706027702e-11 2.2943296568156401e-12 0 0 0</pose>
+        <mass>0.063235716308060699</mass>
         <inertia>
-          <ixx>9.1925792790815606e-05</ixx>
-          <ixy>-2.1795769949468401e-14</ixy>
-          <ixz>3.00941144706054e-15</ixz>
-          <iyy>5.3863853015089102e-05</iyy>
-          <iyz>3.8195852452026302e-15</iyz>
-          <izz>5.38638529876316e-05</izz>
+          <ixx>9.1925792765653496e-05</ixx>
+          <ixy>-2.17969582614652e-14</ixy>
+          <ixz>3.0093495886525699e-15</ixz>
+          <iyy>5.38638529938994e-05</iyy>
+          <iyz>-1.4788043694804301e-15</iyz>
+          <izz>5.3863852983659199e-05</izz>
         </inertia>
       </inertial>
       <collision name='back_right_wheel_rot_collision'>
@@ -231,8 +224,8 @@
           </mesh>
         </geometry>
         <material>
-          <diffuse>0 1 0.372549 1</diffuse>
-          <ambient>0 1 0.372549 1</ambient>
+          <diffuse>0 1 0.372549027 1</diffuse>
+          <ambient>0 1 0.372549027 1</ambient>
         </material>
       </visual>
     </link>
@@ -241,10 +234,10 @@
       <parent>base_link</parent>
       <child>front_left_wheel_rot</child>
       <axis>
-        <xyz>0.999774 -0.021281 0</xyz>
+        <xyz>0.99977352672978703 -0.0212813357260371 0</xyz>
         <limit>
-          <lower>-10000000000000000</lower>
-          <upper>10000000000000000</upper>
+          <lower>-inf</lower>
+          <upper>inf</upper>
         </limit>
         <dynamics>
           <spring_reference>0</spring_reference>
@@ -255,15 +248,15 @@
     <link name='front_left_wheel_rot'>
       <pose relative_to='front_left_wheel_rot_j'>0 0 0 0 0 0</pose>
       <inertial>
-        <pose>0.0140059336705226 -0.000298132524582467 2.01352007983546e-11 0 0 0</pose>
+        <pose>0.0140059336705225 -0.00029813252458266197 2.0135971015578e-11 0 0 0</pose>
         <mass>0.063235716308054898</mass>
         <inertia>
-          <ixx>9.1908554611612998e-05</ixx>
-          <ixy>-8.0982549987772097e-07</ixy>
-          <ixz>1.20157582111866e-14</ixz>
-          <iyy>5.3881091035979002e-05</iyy>
-          <iyz>2.7997625517676699e-14</iyz>
-          <izz>5.3863852933349203e-05</izz>
+          <ixx>9.1908554606306099e-05</ixx>
+          <ixy>-8.0982550004369401e-07</ixy>
+          <ixz>1.25132504922793e-14</ixz>
+          <iyy>5.38810910412805e-05</iyy>
+          <iyz>2.2692149495910801e-14</iyz>
+          <izz>5.3863852922730499e-05</izz>
         </inertia>
       </inertial>
       <collision name='front_left_wheel_rot_collision'>
@@ -284,13 +277,13 @@
           </mesh>
         </geometry>
         <material>
-          <diffuse>0 1 0.372549 1</diffuse>
-          <ambient>0 1 0.372549 1</ambient>
+          <diffuse>0 1 0.372549027 1</diffuse>
+          <ambient>0 1 0.372549027 1</ambient>
         </material>
       </visual>
     </link>
     <joint name='front_left_wheel_steer_j' type='revolute'>
-      <pose relative_to='base_link'>-0.0212429479041969 0.211254558119221 0.0117 0 0 0</pose>
+      <pose relative_to='base_link'>-0.021243000000000001 0.21124999999999999 0.0117 0 0 0</pose>
       <parent>base_link</parent>
       <child>front_left_wheel_steer</child>
       <axis>
@@ -310,15 +303,15 @@
     <link name='front_left_wheel_steer'>
       <pose relative_to='front_left_wheel_steer_j'>0 0 0 0 0 0</pose>
       <inertial>
-        <pose>0.0140059336705226 -0.00029813252458244 2.01352007983546e-11 0 0 0</pose>
+        <pose>0.0140059336705225 -0.000298132524582634 2.0135969280854502e-11 0 0 0</pose>
         <mass>0.063235716308054898</mass>
         <inertia>
-          <ixx>9.1908554611612998e-05</ixx>
-          <ixy>-8.0982549987772097e-07</ixy>
-          <ixz>1.2015759308170301e-14</ixz>
-          <iyy>5.3881091035979002e-05</iyy>
-          <iyz>2.7997625282230099e-14</iyz>
-          <izz>5.3863852933349203e-05</izz>
+          <ixx>9.1908554606306099e-05</ixx>
+          <ixy>-8.0982550004369496e-07</ixy>
+          <ixz>1.25132506942277e-14</ixz>
+          <iyy>5.38810910412805e-05</iyy>
+          <iyz>2.2692149103525e-14</iyz>
+          <izz>5.3863852922730499e-05</izz>
         </inertia>
       </inertial>
       <collision name='front_left_wheel_steer_collision'>
@@ -339,20 +332,20 @@
           </mesh>
         </geometry>
         <material>
-          <diffuse>0 1 0.372549 1</diffuse>
-          <ambient>0 1 0.372549 1</ambient>
+          <diffuse>0 1 0.372549027 1</diffuse>
+          <ambient>0 1 0.372549027 1</ambient>
         </material>
       </visual>
     </link>
     <joint name='front_right_wheel_rot_j' type='revolute'>
-      <pose relative_to='base_link'>0.131001462865903 0.210751140085241 0.0117 0 0 0</pose>
+      <pose relative_to='base_link'>0.13100000000000001 0.21074999999999999 0.0117 0 0 0</pose>
       <parent>base_link</parent>
       <child>front_right_wheel_rot</child>
       <axis>
-        <xyz>0.999774 -0.021281 0</xyz>
+        <xyz>0.99977000000000005 -0.021281000000000001 0</xyz>
         <limit>
-          <lower>-10000000000000000</lower>
-          <upper>10000000000000000</upper>
+          <lower>-inf</lower>
+          <upper>inf</upper>
         </limit>
         <dynamics>
           <spring_reference>0</spring_reference>
@@ -363,15 +356,15 @@
     <link name='front_right_wheel_rot'>
       <pose relative_to='front_right_wheel_rot_j'>0 0 0 0 0 0</pose>
       <inertial>
-        <pose>-0.0140091063539903 3.84884682902431e-07 2.00286228574376e-11 0 0 0</pose>
+        <pose>-0.014009106353990299 3.8488468317998702e-07 2.0028322750276201e-11 0 0 0</pose>
         <mass>0.063235716308098003</mass>
         <inertia>
-          <ixx>9.1925792663539093e-05</ixx>
-          <ixy>-1.0456588537414499e-09</ixy>
-          <ixz>-1.11206332803865e-14</ixz>
-          <iyy>5.3863852948625198e-05</iyy>
-          <iyz>2.78948552972781e-14</iyz>
-          <izz>5.3863852984283997e-05</izz>
+          <ixx>9.1925792684697001e-05</ixx>
+          <ixy>-1.04565885402228e-09</ixy>
+          <ixz>-1.11220426362072e-14</ixz>
+          <iyy>5.38638529697828e-05</iyy>
+          <iyz>2.2605239351673901e-14</iyz>
+          <izz>5.3863852984284302e-05</izz>
         </inertia>
       </inertial>
       <collision name='front_right_wheel_rot_collision'>
@@ -392,13 +385,13 @@
           </mesh>
         </geometry>
         <material>
-          <diffuse>0 1 0.372549 1</diffuse>
-          <ambient>0 1 0.372549 1</ambient>
+          <diffuse>0 1 0.372549027 1</diffuse>
+          <ambient>0 1 0.372549027 1</ambient>
         </material>
       </visual>
     </link>
     <joint name='front_right_wheel_steer_j' type='revolute'>
-      <pose relative_to='base_link'>0.131001462865903 0.210751140085241 0.0117 0 0 0</pose>
+      <pose relative_to='base_link'>0.13100000000000001 0.21074999999999999 0.0117 0 0 0</pose>
       <parent>base_link</parent>
       <child>front_right_wheel_steer</child>
       <axis>
@@ -418,15 +411,15 @@
     <link name='front_right_wheel_steer'>
       <pose relative_to='front_right_wheel_steer_j'>0 0 0 0 0 0</pose>
       <inertial>
-        <pose>-0.0140091063539903 3.84884682902431e-07 2.00286228574376e-11 0 0 0</pose>
+        <pose>-0.014009106353990299 3.8488468317998702e-07 2.0028321015552699e-11 0 0 0</pose>
         <mass>0.063235716308098003</mass>
         <inertia>
-          <ixx>9.1925792663539093e-05</ixx>
-          <ixy>-1.0456588537411e-09</ixy>
-          <ixz>-1.11206335986572e-14</ixz>
-          <iyy>5.3863852948625198e-05</iyy>
-          <iyz>2.7894855800258801e-14</iyz>
-          <izz>5.3863852984283997e-05</izz>
+          <ixx>9.1925792684697001e-05</ixx>
+          <ixy>-1.0456588540231401e-09</ixy>
+          <ixz>-1.1122042812306199e-14</ixz>
+          <iyy>5.38638529697828e-05</iyy>
+          <iyz>2.2605238434676599e-14</iyz>
+          <izz>5.3863852984284302e-05</izz>
         </inertia>
       </inertial>
       <collision name='front_right_wheel_steer_collision'>
@@ -447,8 +440,8 @@
           </mesh>
         </geometry>
         <material>
-          <diffuse>0 1 0.372549 1</diffuse>
-          <ambient>0 1 0.372549 1</ambient>
+          <diffuse>0 1 0.372549027 1</diffuse>
+          <ambient>0 1 0.372549027 1</ambient>
         </material>
       </visual>
     </link>

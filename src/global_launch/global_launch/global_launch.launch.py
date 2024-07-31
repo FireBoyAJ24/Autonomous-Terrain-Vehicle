@@ -65,11 +65,13 @@ def generate_launch_description():
     bridge = Node(
         package="ros_gz_bridge",
         executable="parameter_bridge",
+        arguments=[
+            "/model/main_car/cmd_vel@geometry_msgs/msg/Twist@gz.msgs.Twist"
+        ],
         parameters=[
             {
                 "config_file": os.path.join(
                     get_package_share_directory(package_name),
-                    "model",
                     "bridge",
                     "gz_ros_path.yaml",
                 ),
